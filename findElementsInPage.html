@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>查找页面中所有节点包含哪些标签</title>
+</head>
+<body>
+    <script>
+        var nodeObj = document.getElementsByTagName('*');
+        var resultsArr = [];
+
+        for(var i = 0;i<nodeObj.length;i++){
+            if(resultsArr.indexOf(nodeObj[i].nodeName) === -1){
+                resultsArr.push(nodeObj[i].nodeName);
+            }else{
+                console.log(nodeObj[i].nodeName + '是重复的元素');
+            }
+        }
+
+        console.log(resultsArr);
+    </script>
+</body>
+</html>
