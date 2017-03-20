@@ -10,7 +10,7 @@
     <script>
         var nodeObj = document.getElementsByTagName('*');
         var resultsArr = [];
-
+        //方法一 用 for 循环遍历
         for(var i = 0;i<nodeObj.length;i++){
             if(resultsArr.indexOf(nodeObj[i].nodeName) === -1){
                 resultsArr.push(nodeObj[i].nodeName);
@@ -18,6 +18,17 @@
                 console.log(nodeObj[i].nodeName + '是重复的元素');
             }
         }
+
+        //方法二 将 array-like 转成真正的数组
+        Array.prototype.forEach.call(nodeObj,function(item){
+            if(resultsArr.indexOf(item.nodeName) === -1){
+                resultsArr.push(item.nodeName);
+            }else{
+                console.log(item.nodeName + '是重复的元素');
+            }
+        })
+
+        //方法三
 
         console.log(resultsArr);
     </script>
